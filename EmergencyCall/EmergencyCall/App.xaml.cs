@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Plugin.Permissions;
+using Plugin.Permissions.Abstractions;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace EmergencyCall
 {
@@ -13,19 +13,27 @@ namespace EmergencyCall
 			MainPage = new MainPage();
 		}
 
-		protected override void OnStart()
+		protected async override void OnStart()
 		{
-			// Handle when your app starts
+			var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Location);
+			if (status != PermissionStatus.Granted)
+			{
+				var shouldShow = await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Location);
+				if (shouldShow)
+				{
+					await CrossPermissions.Current.RequestPermissionsAsync(new[] { Permission.Location });
+				}
+			}
 		}
 
 		protected override void OnSleep()
 		{
-			// Handle when your app sleeps
+
 		}
 
 		protected override void OnResume()
 		{
-			// Handle when your app resumes
+
 		}
 	}
 }
