@@ -1,0 +1,14 @@
+﻿[
+  {
+    "name": "Policia",
+    "message": "Pomoc chcu ma natriet hovnom. Som tu Longitude: %LONGITUDE%, Latitude %LATITUDE%."
+  },
+  {
+    "name": "Hasici",
+    "message": "Hori krcma tu Longitude: %LONGITUDE%, Latitude %LATITUDE%."
+  },
+  {
+    "name": "Zdravotnici",
+    "message": "Boli ma v hrudi tu Longitude: %LONGITUDE%, Latitude %LATITUDE%."
+  }
+]
